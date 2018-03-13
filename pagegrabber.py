@@ -1,4 +1,4 @@
-#Pulls class schedule from website and saves to raw.html
+# Pulls class schedule from website and saves to raw.html
 
 import requests
 

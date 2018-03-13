@@ -1,6 +1,7 @@
-#Course class
+# Course class
 
 from datetime import datetime
+
 
 class Course:
     def __init__(self, number, title, days, time, room, instructor, enrollment):
@@ -13,8 +14,8 @@ class Course:
             self.startTime = "TBA"
             self.endTime = "TBA"
         else:
-            self.startTime = datetime.strptime(time[6:14],'%I:%M %p').strftime('%I:%M %p')
-            self.endTime = datetime.strptime(time[15:],'%I:%M %p').strftime('%I:%M %p')
+            self.startTime = datetime.strptime(time[6:14], '%I:%M %p').strftime('%I:%M %p')
+            self.endTime = datetime.strptime(time[15:], '%I:%M %p').strftime('%I:%M %p')
         self.instructor = ' '.join(instructor.split()[1:])
         if enrollment.split()[1] == "Closed":
             self.closed = True
