@@ -1,3 +1,5 @@
+#Pulls class schedule from website and saves to raw.html
+
 import requests
 
 res = requests.get('https://www.macalester.edu/registrar/schedules/2018spring/class-schedule/')
