@@ -13,8 +13,8 @@ class Course:
             self.startTime = "TBA"
             self.endTime = "TBA"
         else:
-            self.startTime = datetime.strptime(time[6:14],'%H:%M %p').strftime('%H:%M %p')
-            self.endTime = datetime.strptime(time[15:],'%H:%M %p').strftime('%H:%M %p')
+            self.startTime = datetime.strptime(time[6:14],'%I:%M %p').strftime('%I:%M %p')
+            self.endTime = datetime.strptime(time[15:],'%I:%M %p').strftime('%I:%M %p')
         self.instructor = ' '.join(instructor.split()[1:])
         if enrollment.split()[1] == "Closed":
             self.closed = True
