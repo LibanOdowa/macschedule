@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Macschedule</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h1>Macschedule V0.1</h1>
+    <form method = "POST">
+	    <fieldset>
+	        <legend>Choose search requirements</legend>
+	        <div>
+	            <input type="checkbox" id="monday" name="days" value="M">
+	            <label for="monday">Monday</label>
+	            <input type="checkbox" id="tuesday" name="days" value="T">
+	            <label for="tuesday">Tuesday</label>
+	            <input type="checkbox" id="wednesday" name="days" value="W">
+	            <label for="wednesday">Wednesday</label>
+	            <input type="checkbox" id="thursday" name="days" value="R">
+	            <label for="thursday">Thursday</label>
+	            <input type="checkbox" id="friday" name="days" value="F">
+	            <label for="friday">Friday</label>
+	        </div>
+	        <div>
+	            <button name="submit">Submit</button>
+	        </div>
+	    </fieldset>
+	</form>
+</body>
+
+</html>
