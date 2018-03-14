@@ -1,10 +1,10 @@
 from flask import Flask, render_template, request
 
-from macschedule import cmdInterface
+from macschedule import backend
 
 app = Flask(__name__)
 
-test = cmdInterface.Backend(open("macschedule/data.json"))
+test = backend.Backend(open("data.json"))
 
 @app.route("/")
 def homepage():
@@ -12,21 +12,15 @@ def homepage():
     return htmltxt
 
 @app.route('/', methods=['POST'])
-def my_form_post():
-    text = request.values.getlist('days')
-    print(text)
-    resultshtml = render_template('results.html', results=test.get_results(text))
+def results():
+    days = request.values.getlist('days')
+    dept = request.values.get('department')
+    startTime = request.values.get('startTime')
+    endTime = request.values.get('endTime')
+    resultshtml = render_template('results.html', results=test.get_results(days, dept, startTime, endTime))
     return resultshtml
 
 
-# def get_results(daylist):
-#     data = json.load(open("macschedule/data.json"))
-#     days = ''.join(daylist)
-#     results = []
-#     for i in data:
-#         if i["days"] in days:
-#             results.append(i)
-#     return results
 
 if __name__ == '__main__':
     app.run(use_reloader=True, debug=True)

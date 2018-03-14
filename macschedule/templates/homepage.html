@@ -13,6 +13,9 @@
 	    <fieldset>
 	        <legend>Choose search requirements</legend>
 	        <div>
+                Start Time<input type="time" name="startTime">
+                End Time<input type="time" name="endTime">
+                <br>
 	            <input type="checkbox" id="monday" name="days" value="M">
 	            <label for="monday">Monday</label>
 	            <input type="checkbox" id="tuesday" name="days" value="T">
@@ -23,8 +26,48 @@
 	            <label for="thursday">Thursday</label>
 	            <input type="checkbox" id="friday" name="days" value="F">
 	            <label for="friday">Friday</label>
-	        </div>
-	        <div>
+                <select name="department">
+                    <option value="NONE">None</option>
+                    <option value="AMST">AMST</option>
+                    <option value="ANTH">ANTH</option>
+                    <option value="ART">ART</option>
+                    <option value="ASIA">ASIA</option>
+                    <option value="BIOL">BIOL</option>
+                    <option value="CHEM">CHEM</option>
+                    <option value="CHIN">CHIN</option>
+                    <option value="CLAS">CLAS</option>
+                    <option value="COMP">COMP</option>
+                    <option value="ECON">ECON</option>
+                    <option value="EDUC">EDUC</option>
+                    <option value="ENGL">ENGL</option>
+                    <option value="ENVI">ENVI</option>
+                    <option value="FREN">FREN</option>
+                    <option value="GEOG">GEOG</option>
+                    <option value="GEOL">GEOL</option>
+                    <option value="GERM">GERM</option>
+                    <option value="HISP">HISP</option>
+                    <option value="HIST">HIST</option>
+                    <option value="INTD">INTD</option>
+                    <option value="INTL">INTL</option>
+                    <option value="JAPA">JAPA</option>
+                    <option value="LATI">LATI</option>
+                    <option value="LING">LING</option>
+                    <option value="MATH">MATH</option>
+                    <option value="MCST">MCST</option>
+                    <option value="MUSI">MUSI</option>
+                    <option value="PE">PE</option>
+                    <option value="PHIL">PHIL</option>
+                    <option value="PHYS">PHYS</option>
+                    <option value="POLI">POLI</option>
+                    <option value="PSYC">PSYC</option>
+                    <option value="RELI">RELI</option>
+                    <option value="RUSS">RUSS</option>
+                    <option value="SOCI">SOCI</option>
+                    <option value="THDA">THDA</option>
+                    <option value="WGSS">WGSS</option>
+                </select>
+
+                <div>
 	            <button name="submit">Submit</button>
 	        </div>
 	    </fieldset>
