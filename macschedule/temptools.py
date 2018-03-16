@@ -13,4 +13,6 @@ import datetime
 
 export = datetime.datetime.strftime(datetime.datetime.strptime("18:04", "%H:%M"), "%I:%M %p")
 
+test = datetime.datetime.strftime(datetime.datetime.strptime("18:04 pm", "%I:%M %p"), "%H:%M")
+
 print(export)

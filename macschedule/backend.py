@@ -15,34 +15,30 @@ class Backend:
     def get_results(self, daylist, dept, startTime, endTime):
         days = ''.join(daylist)
         results = []
-        newStartTime = datetime.strptime(startTime, "%H:%M")
-        newEndTime = datetime.strptime(endTime, "%H:%M")
+        if startTime == '':
+            newStartTime = datetime.strptime("0:00", "%H:%M")
+        else:
+            newStartTime = datetime.strptime(startTime, "%H:%M")
+        if endTime == '':
+            newEndTime = datetime.strptime("23:59", "%H:%M")
+        else:
+            newEndTime = datetime.strptime(endTime, "%H:%M")
         print(newStartTime)
         print(endTime)
         for i in self.data:
-            if newStartTime != "" and newEndTime != "":
-                if i["startTime"] != "TBA" and i["endTime"] != "TBA":
-                    if datetime.strptime(i["startTime"], "%H:%M %p") > newStartTime and datetime.strptime(i["endTime"],
-                                                                                                          "%H:%M %p") < newEndTime:
+            if i["startTime"] != "TBA" and i["endTime"] != "TBA":
+                if datetime.strptime(i["startTime"], "%I:%M %p") >= newStartTime and datetime.strptime(i["endTime"],
+                                                                                                       "%I:%M %p") <= newEndTime:
+                    if days == "" and dept == "NONE":
                         self.result_formatter(results, i)
-            elif newStartTime != "":
-                if i["startTime"] > newStartTime:
-                    self.result_formatter(results, i)
-            elif newEndTime != "":
-                if i["endTime"] < newEndTime:
-                    self.result_formatter(results, i)
-
-
-                    # if days == "" and dept == "NONE":
-                    #     self.result_formatter(results, i)
-                    # elif i["days"] in days and dept == "NONE":
-                    #     self.result_formatter(results, i)
-                    # elif days == "" and dept != "NONE":
-                    #     if i["department"] == dept:
-                    #         self.result_formatter(results, i)
-                    # else:
-                    #     if i["days"] in days and i["department"] == dept:
-                    #         self.result_formatter(results,i)
+                    elif i["days"] in days and dept == "NONE":
+                        self.result_formatter(results, i)
+                    elif days == "" and dept != "NONE":
+                        if i["department"] == dept:
+                            self.result_formatter(results, i)
+                    else:
+                        if i["days"] in days and i["department"] == dept:
+                            self.result_formatter(results, i)
         return results
 
 #
