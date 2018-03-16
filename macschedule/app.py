@@ -17,7 +17,8 @@ def results():
     dept = request.values.get('department')
     startTime = request.values.get('startTime')
     endTime = request.values.get('endTime')
-    resultshtml = render_template('results.html', results=test.get_results(days, dept, startTime, endTime))
+    closed = request.values.get('closed')
+    resultshtml = render_template('results.html', results=test.get_results(days, dept, startTime, endTime, closed))
     return resultshtml
 
 
